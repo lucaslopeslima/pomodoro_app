@@ -14,18 +14,35 @@
 
 :root {
   --bg: #1E2140;
+  --stage-bg: #14162b;
   --menu: #7C7F9E;
   --progress: #F77072;
   --radial-gradient: radial-gradient(ellipse at center, #1C6EA4 0%, #1C6EA4 50%, #090602 100%);
   --font-timer: 'Chakra Petch', sans-serif;
   --font-body: 'Mukta', sans-serif;
   --font-color: white;
+  --normal-ring: #17171a;
+  --grad-ring: #9d0000;
+  --display-bg: radial-gradient(71.4% 71.4% at 51.7% 28.6%, #3a393f 0%, #17171a 100%);
+  --duration: 1500s;
 }
 
 html, body {
   height: 100%;
   font-family: var(--font-body);
   color: var(--font-color);
+}
+
+.flex-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .app {
@@ -44,8 +61,114 @@ html, body {
 }
 
 .app .app-container {
-  background-color: red;
   width: 98vw;
   max-width: 500px;
+}
+
+.app .app-container h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.app .app-container .stage {
+  margin-top: 10px;
+  background-color: var(--stage-bg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 8px;
+  height: 65px;
+  border-radius: 33px;
+}
+
+.app .app-container .stage .stage-item {
+  height: 100%;
+  border-radius: 33px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 155px;
+}
+
+.app .app-container .stage .stage-item-active {
+  background-color: var(--progress);
+}
+
+.app .app-container .timer {
+  margin-top: 75px;
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  position: relative;
+  -webkit-box-shadow: -5px 14px 44px #000000, 5px -16px 50px rgba(255, 255, 255, 0.15);
+          box-shadow: -5px 14px 44px #000000, 5px -16px 50px rgba(255, 255, 255, 0.15);
+  background: var(--display-bg);
+  padding: 5px;
+  background: conic-gradient(var(--progress) var(--angle), #282727 0 360deg);
+  -webkit-animation: var(--duration) progress 1s linear alternate infinite;
+          animation: var(--duration) progress 1s linear alternate infinite;
+  margin-bottom: 50px;
+}
+
+.app .app-container .timer .display {
+  background-color: var(--bg);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.app .app-container .timer .display h2 {
+  font-size: 5rem;
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+.app .app-container .timer .start-stop {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  text-align: center;
+}
+
+.app .app-container .timer .start-stop h2 {
+  font-size: 2.5rem;
+  letter-spacing: 15px;
+  text-transform: uppercase;
+}
+
+.app .app-container .settings {
+  width: 35px;
+  height: 35px;
+  margin: 0 auto;
+}
+
+.app .app-container .settings i {
+  font-size: 2.3rem;
+  color: var(--menu);
+}
+
+@-webkit-keyframes progress {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@keyframes progress {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  /* this can be angle or percentage */
+  initial-value: 0deg;
+  inherits: false;
 }
 /*# sourceMappingURL=main.css.map */
