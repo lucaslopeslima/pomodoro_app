@@ -22,7 +22,6 @@
   --font-body: 'Mukta', sans-serif;
   --font-color: white;
   --normal-ring: #17171a;
-  --grad-ring: #9d0000;
   --display-bg: radial-gradient(71.4% 71.4% at 51.7% 28.6%, #3a393f 0%, #17171a 100%);
   --duration: 1500s;
 }
@@ -124,22 +123,30 @@ html, body {
 
 .app .app-container .timer .display h2 {
   font-size: 5rem;
-  font-family: 'Chakra Petch', sans-serif;
+  font-family: var(--font-timer);
 }
 
 .app .app-container .timer .start-stop {
+  width: 100%;
   position: absolute;
-  bottom: 40px;
-  left: 50%;
-  -webkit-transform: translate(-50%);
-          transform: translate(-50%);
+  bottom: 80px;
+  /* left: 50%; */
+  /* transform: translate(-50%); */
   text-align: center;
+  cursor: pointer;
 }
 
 .app .app-container .timer .start-stop h2 {
   font-size: 2.5rem;
   letter-spacing: 15px;
   text-transform: uppercase;
+  color: var(--menu);
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.app .app-container .timer .start-stop h2:hover {
+  color: white;
 }
 
 .app .app-container .settings {
@@ -151,6 +158,11 @@ html, body {
 .app .app-container .settings i {
   font-size: 2.3rem;
   color: var(--menu);
+  cursor: pointer;
+}
+
+.app .app-container .settings i:hover {
+  color: white;
 }
 
 @-webkit-keyframes progress {
