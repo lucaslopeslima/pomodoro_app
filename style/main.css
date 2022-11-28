@@ -12,7 +12,18 @@
           box-sizing: border-box;
 }
 
+:root {
+  --bg: #1E2140;
+  --menu: #7C7F9E;
+  --progress: #F77072;
+  --radial-gradient: radial-gradient(ellipse at center, #1C6EA4 0%, #1C6EA4 50%, #090602 100%);
+  --font-timer: 'Chakra Petch', sans-serif;
+  --font-body: 'Mukta', sans-serif;
+  --font-color: white;
+}
+
 html, body {
   height: 100%;
+  font-family: var(--font-body);
 }
 /*# sourceMappingURL=main.css.map */
