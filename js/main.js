@@ -35,9 +35,6 @@ alyBtn.addEventListener("click", ()=>{
 
 
 function setValores(p, s, l){
-    /* let pomoTime = p
-    let shortTime = s
-    let longTime = l */
     console.log(p)
     console.log(s)
     console.log(l)
@@ -57,11 +54,15 @@ function setValores(p, s, l){
 //////////////////////// ATUALIZAR O TIMER ///////////////////////
 function loadTimer(){
     let timerDisplay = document.querySelector('#minutes')
-    console.log(timerDisplay.innerText)
-    timerDisplay.innerText = localStorage.getItem('pomodoro')
+    if(localStorage.getItem('pomodoro')){
+        console.log(timerDisplay.innerText)
+        timerDisplay.innerText = localStorage.getItem('pomodoro')
+    }
+    else{
+        timerDisplay.innerText = '00'
+    }
     console.log(timerDisplay.innerText)
 }
-
 ///////////////////////////// LOGIC /////////////////////
 const startStop = document.querySelector('.start-stop')
 const progressBar = document.querySelector('.timer')
@@ -94,7 +95,8 @@ startStop.addEventListener("click", ()=>{
         } else {
             alert('Configure o TIMER clicando no botão SETTINGS.')
         }
-    } else{
+    } 
+    else{
         startStop.innerHTML = '<h2>Start</h2>'
         startStopProgressBar(/* 'stop' */)
     }
@@ -113,7 +115,8 @@ function startStopProgressBar(/* prop */){
     } */
     if(!progress){
         progress = setInterval(progressTrack, speed)
-    } else {
+    }
+    else {
         clearInterval(progress)
         progress = null
         progressStart = 0
