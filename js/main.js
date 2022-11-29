@@ -75,12 +75,24 @@ startStop.addEventListener("click", ()=>{
     if (startStop.innerHTML === '<h2>Start</h2>'){
         if(min != 0 && sec != 0){
             startStop.innerHTML = '<h2>Stop</h2>'
-            //startStopProgressBar(start)
+            startStopProgressBar('start')
         } else {
             alert('Configure o TIMER clicando no botão SETTINGS.')
         }
     } else{
         startStop.innerHTML = '<h2>Start</h2>'
-        //startStopProgressBar(stop)
+        startStopProgressBar('stop')
     }
 })
+
+
+function startStopProgressBar(prop){
+    if(prop == 'start') {
+        console.log('start')
+        
+
+    } else {
+        console.log('stop')
+
+    }
+}
