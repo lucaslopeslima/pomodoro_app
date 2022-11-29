@@ -1,0 +1,10 @@
+@keyframes progress {
+    to {
+      --angle: 360deg;
+    }
+  }
+  @property --angle {
+    syntax: "<angle>"; /* this can be angle or percentage */
+    initial-value: 0deg;
+    inherits: false;
+  }
