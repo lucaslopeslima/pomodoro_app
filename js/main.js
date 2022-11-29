@@ -59,5 +59,7 @@ function setValores(p, s, l){
 
 function loadTimer(){
     let timerDisplay = document.querySelector('#minutes')
-    console.log(timerDisplay)
+    console.log(timerDisplay.innerText)
+    timerDisplay.innerText = localStorage.getItem('pomodoro')
+    console.log(timerDisplay.innerText)
 }
