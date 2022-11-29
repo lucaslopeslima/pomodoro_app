@@ -12,24 +12,11 @@
           box-sizing: border-box;
 }
 
-:root {
-  --bg: #1E2140;
-  --stage-bg: #14162b;
-  --menu: #7C7F9E;
-  --progress: #F77072;
-  --radial-gradient: radial-gradient(ellipse at center, #1C6EA4 0%, #1C6EA4 50%, #090602 100%);
-  --font-timer: 'Chakra Petch', sans-serif;
-  --font-body: 'Mukta', sans-serif;
-  --font-color: white;
-  --normal-ring: #17171a;
-  --display-bg: radial-gradient(71.4% 71.4% at 51.7% 28.6%, #3a393f 0%, #17171a 100%);
-  --duration: 1500s;
-}
-
 html, body {
   height: 100%;
   font-family: var(--font-body);
   color: var(--font-color);
+  font-weight: 200 !important;
 }
 
 .flex-center {
@@ -67,6 +54,7 @@ html, body {
 .app .app-container h1 {
   text-align: center;
   text-transform: uppercase;
+  margin-bottom: 55px;
 }
 
 .app .app-container .stage {
@@ -94,6 +82,10 @@ html, body {
   width: 155px;
 }
 
+.app .app-container .stage .stage-item h2 {
+  font-weight: 300;
+}
+
 .app .app-container .stage .stage-item-active {
   background-color: var(--progress);
 }
@@ -107,7 +99,7 @@ html, body {
   -webkit-box-shadow: -5px 14px 44px #000000, 5px -16px 50px rgba(255, 255, 255, 0.15);
           box-shadow: -5px 14px 44px #000000, 5px -16px 50px rgba(255, 255, 255, 0.15);
   background: var(--display-bg);
-  padding: 5px;
+  padding: 10px;
   background: conic-gradient(var(--progress) var(--angle), #282727 0 360deg);
   -webkit-animation: var(--duration) progress 1s linear alternate infinite;
           animation: var(--duration) progress 1s linear alternate infinite;
@@ -182,5 +174,64 @@ html, body {
   /* this can be angle or percentage */
   initial-value: 0deg;
   inherits: false;
+}
+
+:root {
+  --bg: #1E2140;
+  --stage-bg: #14162b;
+  --menu: #7C7F9E;
+  --progress: #F77072;
+  --radial-gradient: radial-gradient(ellipse at center, #1C6EA4 0%, #1C6EA4 50%, #090602 100%);
+  --font-timer: 'Chakra Petch', sans-serif;
+  --font-body: 'Mukta', sans-serif;
+  --font-color: white;
+  --normal-ring: #17171a;
+  --display-bg: radial-gradient(71.4% 71.4% at 51.7% 28.6%, #3a393f 0%, #17171a 100%);
+  --duration: 10s;
+}
+
+.modal {
+  background-color: #0000006b;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal .modal-content {
+  background-color: white;
+  color: black;
+  width: 500px;
+  border-radius: 20px;
+}
+
+.modal .modal-content .modal-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 40px;
+  border-bottom: 1px solid gray;
+}
+
+.modal .modal-content .modal-header h2 {
+  font-weight: bold;
+}
+
+:root {
+  --bg: #1E2140;
+  --stage-bg: #14162b;
+  --menu: #7C7F9E;
+  --progress: #F77072;
+  --radial-gradient: radial-gradient(ellipse at center, #1C6EA4 0%, #1C6EA4 50%, #090602 100%);
+  --font-timer: 'Chakra Petch', sans-serif;
+  --font-body: 'Mukta', sans-serif;
+  --font-color: white;
+  --normal-ring: #17171a;
+  --display-bg: radial-gradient(71.4% 71.4% at 51.7% 28.6%, #3a393f 0%, #17171a 100%);
+  --duration: 10s;
 }
 /*# sourceMappingURL=main.css.map */

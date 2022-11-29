@@ -1,0 +1,25 @@
+@import 'root';
+
+.modal{
+    background-color: #0000006b;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    .modal-content{
+        background-color: white;
+        color: black;
+        width: 500px;
+        border-radius: 20px;
+        .modal-header{
+            display: flex;
+            justify-content: space-between;
+            padding: 40px;
+            h2{
+                font-weight: bold;
+            }
+            border-bottom: 1px solid gray;
+        }
+    }
+}

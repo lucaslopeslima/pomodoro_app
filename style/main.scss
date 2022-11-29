@@ -8,23 +8,12 @@
         box-sizing: border-box;
     }
 }
-:root{
-    --bg: #1E2140;
-    --stage-bg: #14162b;
-    --menu: #7C7F9E;
-    --progress: #F77072;
-    --radial-gradient: radial-gradient(ellipse at center, #1C6EA4 0%, #1C6EA4 50%, #090602 100%);
-    --font-timer: 'Chakra Petch', sans-serif;
-    --font-body: 'Mukta', sans-serif;
-    --font-color: white;
-    --normal-ring: #17171a;
-    --display-bg: radial-gradient(71.4% 71.4% at 51.7% 28.6%, #3a393f 0%, #17171a 100%);
-    --duration: 1500s;
-}
+
 html, body{
     height: 100%;
     font-family: var(--font-body);
     color: var(--font-color);
+    font-weight: 200 !important;
 }
 ///////////////////////////////////////////////////////////////
 .flex-center{
@@ -46,6 +35,7 @@ html, body{
         h1{
             text-align: center;
             text-transform: uppercase;
+            margin-bottom: 55px;
         }
         .stage{
             margin-top: 10px;
@@ -62,6 +52,9 @@ html, body{
                 padding-left: 20px;
                 padding-right: 20px;
                 width: 155px;
+                h2{
+                    font-weight: 300;
+                }
             }
             .stage-item-active{
                 background-color: var(--progress);
@@ -75,7 +68,7 @@ html, body{
             position: relative;
             box-shadow: -5px 14px 44px #000000, 5px -16px 50px rgba(255, 255, 255, 0.15);
             background: var(--display-bg);
-            padding: 5px;
+            padding: 10px;
             background: conic-gradient(
             var(--progress) var(--angle),
             #282727 0 360deg,
@@ -129,16 +122,6 @@ html, body{
 }
 
 
-
-
-
-@keyframes progress {
-    to {
-      --angle: 360deg;
-    }
-  }
-  @property --angle {
-    syntax: "<angle>"; /* this can be angle or percentage */
-    initial-value: 0deg;
-    inherits: false;
-  }
+@import 'animation';
+@import 'modal';
+@import 'root';
