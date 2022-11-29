@@ -17,6 +17,10 @@ html, body {
   font-family: var(--font-body);
   color: var(--font-color);
   font-weight: 200 !important;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .flex-center {
@@ -75,6 +79,10 @@ html, body {
 }
 
 .app .app-container .stage .stage-item {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   height: 100%;
   border-radius: 33px;
   padding-left: 20px;
@@ -192,6 +200,7 @@ html, body {
 
 .modal {
   background-color: #0000006b;
+  visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
