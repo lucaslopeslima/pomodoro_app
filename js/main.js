@@ -148,7 +148,7 @@ function progressTrack() {
       progressStart = 0;
     }
   }
-  
+
   function resetValues() {
     if (progress) {
       clearInterval(progress);
@@ -169,3 +169,11 @@ function progressTrack() {
           #17171a 360deg
         )`;
   }
+
+minElem.onblur = function () {
+    resetValues();
+};
+
+secElem.onblur = function () {
+    resetValues();
+};
