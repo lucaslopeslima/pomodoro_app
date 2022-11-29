@@ -63,3 +63,24 @@ function loadTimer(){
     timerDisplay.innerText = localStorage.getItem('pomodoro')
     console.log(timerDisplay.innerText)
 }
+
+const startStop = document.querySelector('.start-stop')
+let min = document.querySelector('.minutes')
+let sec = document.querySelector('.seconds')
+console.log(startStop)
+console.log(minutes)
+console.log(seconds)
+
+startStop.addEventListener("click", ()=>{
+    if (startStop.innerHTML === '<h2>Start</h2>'){
+        if(min != 0 && sec != 0){
+            startStop.innerHTML = '<h2>Stop</h2>'
+            //startStopProgressBar(start)
+        } else {
+            alert('Configure o TIMER clicando no botão SETTINGS.')
+        }
+    } else{
+        startStop.innerHTML = '<h2>Start</h2>'
+        //startStopProgressBar(stop)
+    }
+})
