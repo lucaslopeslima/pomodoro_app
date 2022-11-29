@@ -17,10 +17,8 @@ butx.addEventListener("click", ()=>{
     modal.style.cssText = 'visibility: hidden;'
 })
 
-
+///////////////////////// SETTINGS ///////////////////////////////////
 const alyBtn = document.getElementById('apply')
-
-
 console.log(alyBtn)
 
 alyBtn.addEventListener("click", ()=>{
@@ -56,7 +54,7 @@ function setValores(p, s, l){
     }
     alert('nao') 
 }
-
+//////////////////////// ATUALIZAR O TIMER ///////////////////////
 function loadTimer(){
     let timerDisplay = document.querySelector('#minutes')
     console.log(timerDisplay.innerText)
@@ -64,24 +62,33 @@ function loadTimer(){
     console.log(timerDisplay.innerText)
 }
 
+///////////////////////////// LOGIC /////////////////////
 const startStop = document.querySelector('.start-stop')
-let min = document.querySelector('.minutes')
-let sec = document.querySelector('.seconds')
+const progressBar = document.querySelector('.timer')
+
+let minElem = document.querySelector('#minutes')
+let min = minElem.innerHTML
+let secElem = document.querySelector('#seconds')
+let sec = secElem.innerHTML
+
 let progress = null
 let progressStart = 0
 let progressEnd = parseInt(min) * 60 + parseInt(sec)
 let speed = 1000
 let degTravel = 360 / progressEnd
 let secRem = 0
-let minRem =0
+let minRem = 0
 
 console.log(startStop)
-console.log(minutes)
-console.log(seconds)
+console.log(min)
+console.log(sec)
+console.log('progressStart is ' + progressStart)
+
 
 startStop.addEventListener("click", ()=>{
+    console.log('progressStart is ' + progressStart)
     if (startStop.innerHTML === '<h2>Start</h2>'){
-        if(min != 0 && sec != 0){
+        if(minElem != 0){
             startStop.innerHTML = '<h2>Stop</h2>'
             startStopProgressBar(/* 'start' */)
         } else {
@@ -110,9 +117,55 @@ function startStopProgressBar(/* prop */){
         clearInterval(progress)
         progress = null
         progressStart = 0
-        startStopProgressBar.style.background = `conic-gradient(
+        progressBar.style.background = `conic-gradient(
             #1717a 360deg,
             #1717a 360deg
         )`
     }
 }
+
+function progressTrack() {
+    progressStart++;
+  
+    secRem = Math.floor((progressEnd - progressStart) % 60);
+    minRem = Math.floor((progressEnd - progressStart) / 60);
+  
+    secElem.innerHTML = secRem.toString().length == 2 ? secRem : `0${secRem}`;
+    minElem.innerHTML = minRem.toString().length == 2 ? minRem : `0${minRem}`;
+  
+    progressBar.style.background = `conic-gradient(
+          #9d0000 ${progressStart * degTravel}deg,
+          #17171a ${progressStart * degTravel}deg
+        )`;
+    if (progressStart == progressEnd) {
+      progressBar.style.background = `conic-gradient(
+          #00aa51 360deg,
+          #00aa51 360deg
+        )`;
+      clearInterval(progress);
+      startStop.innerHTML = "START";
+      progress = null;
+      progressStart = 0;
+    }
+  }
+  
+  function resetValues() {
+    if (progress) {
+      clearInterval(progress);
+    }
+    minutes = document.querySelector("#minutes").innerHTML;
+    seconds = document.querySelector("#seconds").innerHTML;
+    toggleSettings = false;
+    minElem.contentEditable = false;
+    minElem.style.borderBottom = `none`;
+    secElem.contentEditable = false;
+    secElem.style.borderBottom = `none`;
+    progress = null;
+    progressStart = 0;
+    progressEnd = parseInt(minutes) * 60 + parseInt(seconds);
+    degTravel = 360 / progressEnd;
+    progressBar.style.background = `conic-gradient(
+          #17171a 360deg,
+          #17171a 360deg
+        )`;
+  }
