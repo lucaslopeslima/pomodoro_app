@@ -67,6 +67,14 @@ function loadTimer(){
 const startStop = document.querySelector('.start-stop')
 let min = document.querySelector('.minutes')
 let sec = document.querySelector('.seconds')
+let progress = null
+let progressStart = 0
+let progressEnd = parseInt(min) * 60 + parseInt(sec)
+let speed = 1000
+let degTravel = 360 / progressEnd
+let secRem = 0
+let minRem =0
+
 console.log(startStop)
 console.log(minutes)
 console.log(seconds)
@@ -75,18 +83,19 @@ startStop.addEventListener("click", ()=>{
     if (startStop.innerHTML === '<h2>Start</h2>'){
         if(min != 0 && sec != 0){
             startStop.innerHTML = '<h2>Stop</h2>'
-            startStopProgressBar('start')
+            startStopProgressBar(/* 'start' */)
         } else {
             alert('Configure o TIMER clicando no botão SETTINGS.')
         }
     } else{
         startStop.innerHTML = '<h2>Start</h2>'
-        startStopProgressBar('stop')
+        startStopProgressBar(/* 'stop' */)
     }
 })
 
 
-function startStopProgressBar(prop){
+function startStopProgressBar(/* prop */){
+    /* 
     if(prop == 'start') {
         console.log('start')
         
@@ -94,5 +103,16 @@ function startStopProgressBar(prop){
     } else {
         console.log('stop')
 
+    } */
+    if(!progress){
+        progress = setInterval(progressTrack, speed)
+    } else {
+        clearInterval(progress)
+        progress = null
+        progressStart = 0
+        startStopProgressBar.style.background = `conic-gradient(
+            #1717a 360deg,
+            #1717a 360deg
+        )`
     }
 }
