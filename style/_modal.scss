@@ -12,14 +12,94 @@
         color: black;
         width: 500px;
         border-radius: 20px;
+        font-weight: lighter;
         .modal-header{
             display: flex;
             justify-content: space-between;
-            padding: 40px;
+            padding: 20px 40px;
             h2{
                 font-weight: bold;
             }
-            border-bottom: 1px solid gray;
+            .button-x{
+                text-align: center;
+                cursor: pointer;
+                i{
+                    font-size: 2rem;
+                }
+            }
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .modal-body{
+            padding: 20px 40px;
+            .time-input{
+                letter-spacing: 5px;
+                text-transform: uppercase;
+            }
+            .time-wrap{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                .time-item{
+                    margin-top: 20px;
+                    h2{
+                        font-size: .9rem;
+                    }
+                    input{
+                        max-width: 80px;
+                        outline: none;
+                        padding: 10px;
+                        border-radius: 10px;
+                        border: 1px solid #e0e0e0;
+                    }
+                }
+            }
+            .modal-line{
+                margin-top: 15px;
+                margin-bottom: 15px;
+                height: 1px;
+                width: 100%;
+                background-color: #e0e0e0;
+            }
+            .modal-font{
+                display: flex;
+                justify-content: space-between;
+                .font-button{
+                    width: 40px;
+                    height: 40px;
+                    background-color: #acacac;
+                    margin-left: 15px;
+                    border-radius: 50%;
+                }
+                .active-font-button{
+                    background-color: black;
+                    color: white;
+                }
+            }
+            .modal-color{
+                display: flex;
+                justify-content: space-between;
+                .color-wrap{
+                    .color-item{
+                        width: 40px;
+                        height: 40px;
+                        background-color: #acacac;
+                        margin-left: 15px;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+        .modal-apply{
+            background-color: #fe6464;
+            width: 150px;
+            height: 70px;
+            border-radius: 35px;
+            margin: 0 auto;
+            transform: translateY(+50%);
+            cursor: pointer;
+            h2{
+                color: white;
+            }
         }
     }
 }
