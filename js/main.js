@@ -153,7 +153,7 @@ function progressTrack() {
           #00aa51 360deg
         )`;
       clearInterval(progress);
-      startStop.innerHTML = "START";
+      startStop.innerHTML = "<h2>Start</h2>";
       progress = null;
       progressStart = 0;
     }
@@ -165,11 +165,6 @@ function progressTrack() {
     }
     minutes = document.querySelector("#minutes").innerHTML;
     seconds = document.querySelector("#seconds").innerHTML;
-    toggleSettings = false;
-    minElem.contentEditable = false;
-    minElem.style.borderBottom = `none`;
-    secElem.contentEditable = false;
-    secElem.style.borderBottom = `none`;
     progress = null;
     progressStart = 0;
     progressEnd = parseInt(minutes) * 60 + parseInt(seconds);
