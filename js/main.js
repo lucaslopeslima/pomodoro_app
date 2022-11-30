@@ -57,8 +57,8 @@ const startStop = document.querySelector('.start-stop')
 const progressBar = document.querySelector('.timer')
 
 let minElem = document.querySelector('#minutes')
-let min = localStorage.getItem('pomodoro')
 let secElem = document.querySelector('#seconds')
+let min = localStorage.getItem('pomodoro')
 let sec = min * 60
 
 let progress = null
@@ -136,7 +136,7 @@ function startStopProgressBar(/* prop */){
 
 function progressTrack() {
     progressStart++;
-  
+    degTravel = 360 / progressEnd
     secRem = Math.floor((progressEnd - progressStart) % 60);
     minRem = Math.floor((progressEnd - progressStart) / 60);
   
@@ -167,8 +167,8 @@ function progressTrack() {
     seconds = document.querySelector("#seconds").innerHTML;
     progress = null;
     progressStart = 0;
-    progressEnd = parseInt(minutes) * 60 + parseInt(seconds);
-    degTravel = 360 / progressEnd;
+    progressEnd = sec
+    degTravel = 360 / progressEnd
     progressBar.style.background = `conic-gradient(
           #17171a 360deg,
           #17171a 360deg
