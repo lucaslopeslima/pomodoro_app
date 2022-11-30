@@ -51,40 +51,47 @@ function setValores(p, s, l){
     }
     alert('nao') 
 }
-//////////////////////// ATUALIZAR O TIMER ///////////////////////
-function loadTimer(){
-    let timerDisplay = document.querySelector('#minutes')
-    if(localStorage.getItem('pomodoro')){
-        console.log(timerDisplay.innerText)
-        timerDisplay.innerText = localStorage.getItem('pomodoro')
-    }
-    else{
-        timerDisplay.innerText = '00'
-    }
-    console.log(timerDisplay.innerText)
-}
+
 ///////////////////////////// LOGIC /////////////////////
 const startStop = document.querySelector('.start-stop')
 const progressBar = document.querySelector('.timer')
 
 let minElem = document.querySelector('#minutes')
-let min = minElem.innerHTML
+let min = localStorage.getItem('pomodoro')
 let secElem = document.querySelector('#seconds')
-let sec = secElem.innerHTML
+let sec = min * 60
 
 let progress = null
 let progressStart = 0
-let progressEnd = parseInt(min) * 60 + parseInt(sec)
+let progressEnd = sec
 let speed = 1000
 let degTravel = 360 / progressEnd
 let secRem = 0
 let minRem = 0
 
 console.log(startStop)
-console.log(min)
-console.log(sec)
+console.log('min é '+min)
+console.log('sec é '+sec)
 console.log('progressStart is ' + progressStart)
-
+console.log('end é ' + progressEnd)
+//////////////////////// ATUALIZAR O TIMER ///////////////////////
+function loadTimer(){
+    let timerDisplay = document.querySelector('#minutes')
+    let timerDisplaysec = document.querySelector('#seconds')
+    if(localStorage.getItem('pomodoro')){
+        console.log(timerDisplay.innerText)
+        timerDisplay.innerText = localStorage.getItem('pomodoro')
+        min = localStorage.getItem('pomodoro')
+        sec = min * 60
+        progressEnd = sec
+        timerDisplaysec.innerText = '00'
+    }
+    else{
+        timerDisplay.innerText = '00'
+        timerDisplaysec.innerText = '00'
+    }
+    console.log(timerDisplay.innerText)
+}
 
 startStop.addEventListener("click", ()=>{
     console.log('progressStart is ' + progressStart)
