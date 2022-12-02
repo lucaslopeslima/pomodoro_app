@@ -182,7 +182,14 @@ async function progressTrack() {
       startStop.innerHTML = "<h2>Start</h2>";
       console.log('THE END!!!')
       console.log('track off')
+      playAlarm()
+      /* const myTimeout = setTimeout(playAlarm, 1000);
+      myTimeout */
     }
+}
+function playAlarm(){
+    var audio = new Audio('../audio/alarm.wav');
+    audio.play();
 }
 ///////////////////// Trocando de Modo /////////////////////
 async function switchingStage(stage){
