@@ -69,11 +69,11 @@ let degTravel = 360 / progressEnd
 let secRem = 0
 let minRem = 0
 
-console.log(startStop)
+/* console.log(startStop)
 console.log('min é '+min)
 console.log('sec é '+sec)
 console.log('progressStart is ' + progressStart)
-console.log('end é ' + progressEnd)
+console.log('end é ' + progressEnd) */
 //////////////////////// ATUALIZAR O TIMER ///////////////////////
 function loadTimer(){
     let timerDisplay = document.querySelector('#minutes')
@@ -143,14 +143,15 @@ function progressTrack() {
     secElem.innerHTML = secRem.toString().length == 2 ? secRem : `0${secRem}`;
     minElem.innerHTML = minRem.toString().length == 2 ? minRem : `0${minRem}`;
   
-    /* progressBar.style.background = `conic-gradient(
+    progressBar.style.background = `conic-gradient(
           #9d0000 ${progressStart * degTravel}deg,
           #17171a ${progressStart * degTravel}deg
-        )`; */
-    let progressTimer = document.querySelector('.timer')
+        )`;
+    /* let progressTimer = document.querySelector('.timer')
     console.log(sec + 'segundos')
-    progressTimer.style.cssText = `animation: progress ${sec}s 1s linear forwards;`
+    progressTimer.style.cssText = `animation: progress ${sec}s 1s linear forwards;` */
     if (progressStart == progressEnd) {
+        //progressTimer.style.cssText = `animation: none;`
       progressBar.style.background = `conic-gradient(
           #00aa51 360deg,
           #00aa51 360deg
