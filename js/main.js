@@ -111,15 +111,6 @@ startStop.addEventListener("click", ()=>{
 
 
 function startStopProgressBar(/* prop */){
-    /* 
-    if(prop == 'start') {
-        console.log('start')
-        
-
-    } else {
-        console.log('stop')
-
-    } */
     if(!progress){
         progress = setInterval(progressTrack, speed)
     }
@@ -160,9 +151,15 @@ function progressTrack() {
       startStop.innerHTML = "<h2>Start</h2>";
       progress = null;
       progressStart = 0;
+      min = localStorage.getItem('shortbreak')
+      sec = min * 60
+      console.log('minuto é ' + min)
+      console.log('sec é ' + sec)
     }
   }
 
+
+  
   function resetValues() {
     if (progress) {
       clearInterval(progress);
