@@ -92,7 +92,7 @@ function loadTimer(firstStage){
     }
     console.log(timerDisplay.innerText)
 }
-
+///////////////////// START - STOP btn /////////////////////
 startStop.addEventListener("click", ()=>{
     console.log('progressStart is ' + progressStart)
     if (startStop.innerHTML === '<h2>Start</h2>'){
@@ -109,7 +109,7 @@ startStop.addEventListener("click", ()=>{
     }
 })
 
-
+///////////////////// Progress bar /////////////////////
 function startStopProgressBar(){
     if(!progress){
         progress = setInterval(progressTrack, speed)
@@ -124,7 +124,7 @@ function startStopProgressBar(){
         )`
     }
 }
-
+///////////////////// Progress Track /////////////////////
 function progressTrack() {
     progressStart++;
     degTravel = 360 / progressEnd
@@ -139,6 +139,9 @@ function progressTrack() {
           #17171a ${progressStart * degTravel}deg
         )`;
     if (progressStart == progressEnd) {
+        if(progress){
+
+        }
       progressBar.style.background = `conic-gradient(
           #00aa51 360deg,
           #00aa51 360deg
@@ -188,15 +191,15 @@ secElem.onblur = function () {
 /*
 progress = pomodoro
 if progress == pomodoro{
-    progresstage++
+    progresStage++
     progress = shortbreak
 }
 if progress == shortbreak{
-    progresstage++
+    progresStage++
     progress = longbreak
 }
 if progress == longbreak{
-    progressstage++
+    progressStage++
     progress = null
 }
 
