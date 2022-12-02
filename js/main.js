@@ -44,7 +44,7 @@ function setValores(p, s, l){
         localStorage.setItem('pomodoro', p)
         localStorage.setItem('shortbreak', s)
         localStorage.setItem('longbreak', l)
-        loadTimer()
+        loadTimer('pomodoro')
         
         return
 
@@ -75,13 +75,13 @@ console.log('sec é '+sec)
 console.log('progressStart is ' + progressStart)
 console.log('end é ' + progressEnd) */
 //////////////////////// ATUALIZAR O TIMER ///////////////////////
-function loadTimer(){
+function loadTimer(firstStage){
     let timerDisplay = document.querySelector('#minutes')
     let timerDisplaysec = document.querySelector('#seconds')
-    if(localStorage.getItem('pomodoro')){
+    if(localStorage.getItem(firstStage)){
         console.log(timerDisplay.innerText)
-        timerDisplay.innerText = localStorage.getItem('pomodoro')
-        min = localStorage.getItem('pomodoro')
+        timerDisplay.innerText = localStorage.getItem(firstStage)
+        min = localStorage.getItem(firstStage)
         sec = min * 60
         progressEnd = sec
         timerDisplaysec.innerText = '00'
@@ -98,19 +98,19 @@ startStop.addEventListener("click", ()=>{
     if (startStop.innerHTML === '<h2>Start</h2>'){
         if(minElem != 0){
             startStop.innerHTML = '<h2>Stop</h2>'
-            startStopProgressBar(/* 'start' */)
+            startStopProgressBar()
         } else {
             alert('Configure o TIMER clicando no botão SETTINGS.')
         }
     } 
     else{
         startStop.innerHTML = '<h2>Start</h2>'
-        startStopProgressBar(/* 'stop' */)
+        startStopProgressBar()
     }
 })
 
 
-function startStopProgressBar(/* prop */){
+function startStopProgressBar(){
     if(!progress){
         progress = setInterval(progressTrack, speed)
     }
@@ -155,9 +155,16 @@ function progressTrack() {
       sec = min * 60
       console.log('minuto é ' + min)
       console.log('sec é ' + sec)
+      switchingStage('shortbreak')
+      loadTimer('shortbreak')
     }
   }
-
+function switchingStage(stage){
+    min = localStorage.getItem(stage)
+    sec = min * 60
+    progressEnd = sec
+    startStopProgressBar()
+}
 
   
   function resetValues() {
