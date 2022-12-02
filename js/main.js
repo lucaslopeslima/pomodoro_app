@@ -143,10 +143,13 @@ function progressTrack() {
     secElem.innerHTML = secRem.toString().length == 2 ? secRem : `0${secRem}`;
     minElem.innerHTML = minRem.toString().length == 2 ? minRem : `0${minRem}`;
   
-    progressBar.style.background = `conic-gradient(
+    /* progressBar.style.background = `conic-gradient(
           #9d0000 ${progressStart * degTravel}deg,
           #17171a ${progressStart * degTravel}deg
-        )`;
+        )`; */
+    let progressTimer = document.querySelector('.timer')
+    console.log(sec + 'segundos')
+    progressTimer.style.cssText = `animation: progress ${sec}s 1s linear forwards;`
     if (progressStart == progressEnd) {
       progressBar.style.background = `conic-gradient(
           #00aa51 360deg,
