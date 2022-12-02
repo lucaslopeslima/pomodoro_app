@@ -151,18 +151,14 @@ function progressTrack() {
       startStop.innerHTML = "<h2>Start</h2>";
       progress = null;
       progressStart = 0;
-      min = localStorage.getItem('shortbreak')
-      sec = min * 60
-      console.log('minuto é ' + min)
-      console.log('sec é ' + sec)
-      switchingStage('shortbreak')
-      loadTimer('shortbreak')
+      //switchingStage('shortbreak')
+      //loadTimer('shortbreak')
     }
   }
 function switchingStage(stage){
     min = localStorage.getItem(stage)
     sec = min * 60
-    progressEnd = sec
+    
     startStopProgressBar()
 }
 
