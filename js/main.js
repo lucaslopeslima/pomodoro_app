@@ -82,6 +82,10 @@ function loadTimer(firstStage){
         //console.log(timerDisplay.innerText)
         if (localStorage.getItem(firstStage).length < 2){
             timerDisplay.innerText = '0' + localStorage.getItem(firstStage)
+            min = localStorage.getItem(firstStage)
+            sec = min * 60
+            progressEnd = sec
+            timerDisplaysec.innerText = '00'
         } else{
             timerDisplay.innerText = localStorage.getItem(firstStage)
             min = localStorage.getItem(firstStage)
@@ -115,9 +119,12 @@ startStop.addEventListener("click", ()=>{
 })
 
 ///////////////////// Progress bar /////////////////////
-function startStopProgressBar(){
+
+async function startStopProgressBar(){
     if(!progress){
-        progress = setInterval(progressTrack, speed)
+        //progresStage = 1
+        progress = await setInterval(progressTrack, speed)
+        console.log('progresStage = ' + progresStage)
     }
     else {
         clearInterval(progress)
@@ -130,7 +137,8 @@ function startStopProgressBar(){
     }
 }
 ///////////////////// Progress Track /////////////////////
-function progressTrack() {
+let progresStage = 1
+async function progressTrack() {
     progressStart++;
     degTravel = 360 / progressEnd
     secRem = Math.floor((progressEnd - progressStart) % 60);
@@ -144,19 +152,32 @@ function progressTrack() {
           #17171a ${progressStart * degTravel}deg
         )`;
     if (progressStart == progressEnd) {
-        if(progress){
-
+        /* if(progresStage == 1){
+            progresStage++
+            clearInterval(progress);
+            progress = null;
+            progressStart = 0;
+           await switchingStage('shortbreak')
         }
+        if(progresStage == 2){
+            progresStage++
+            clearInterval(progress);
+            progress = null;
+            progressStart = 0;
+           await switchingStage('longbreak')
+        } */
       progressBar.style.background = `conic-gradient(
           #00aa51 360deg,
           #00aa51 360deg
         )`;
       clearInterval(progress);
-      startStop.innerHTML = "<h2>Start</h2>";
+      
       progress = null;
       progressStart = 0;
-      //switchingStage('shortbreak')
       
+      await switchingStage('shortbreak')
+      startStop.innerHTML = "<h2>Start</h2>";
+      console.log('THE END!!!')
     }
 }
 ///////////////////// Trocando de Modo /////////////////////
