@@ -84,6 +84,7 @@ for(let i = 0; i < stageItems.length; i++){
         currentBtn[0].className = currentBtn[0].className.replace('stage-item-active', '')
         this.className += ' stage-item-active'
         console.log(this.innerText)
+        loadTimer(this.innerText)
     })
 }
 
