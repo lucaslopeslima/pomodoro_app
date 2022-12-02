@@ -108,11 +108,9 @@ html, body {
           box-shadow: -5px 14px 44px #000000, 5px -16px 50px rgba(255, 255, 255, 0.15);
   background: var(--display-bg);
   padding: 10px;
-  /* background: conic-gradient(
-            var(--progress) var(--angle),
-            #282727 0 360deg,
-            );
-            animation: var(--duration) progress 1s linear alternate infinite; */
+  background: conic-gradient(var(--progress) var(--angle), #282727 0 360deg);
+  -webkit-animation: var(--duration) progress 1s linear alternate infinite;
+          animation: var(--duration) progress 1s linear alternate infinite;
   margin-bottom: 50px;
 }
 
