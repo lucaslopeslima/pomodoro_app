@@ -109,9 +109,9 @@ html, body {
   background: var(--display-bg);
   padding: 10px;
   background: conic-gradient(var(--progress) var(--angle), #282727 0 360deg);
-  /* animation: progress var(--duration) 1s linear alternate infinite; */
-  -webkit-animation: progress var(--duration) 1s linear forwards;
-          animation: progress var(--duration) 1s linear forwards;
+  -webkit-animation: progress var(--duration) 1s linear alternate infinite;
+          animation: progress var(--duration) 1s linear alternate infinite;
+  /* animation: progress var(--duration) 1s linear forwards; */
   margin-bottom: 50px;
 }
 
