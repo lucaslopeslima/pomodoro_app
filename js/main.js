@@ -79,18 +79,23 @@ function loadTimer(firstStage){
     let timerDisplay = document.querySelector('#minutes')
     let timerDisplaysec = document.querySelector('#seconds')
     if(localStorage.getItem(firstStage)){
-        console.log(timerDisplay.innerText)
-        timerDisplay.innerText = localStorage.getItem(firstStage)
-        min = localStorage.getItem(firstStage)
-        sec = min * 60
-        progressEnd = sec
-        timerDisplaysec.innerText = '00'
+        //console.log(timerDisplay.innerText)
+        if (localStorage.getItem(firstStage).length < 2){
+            timerDisplay.innerText = '0' + localStorage.getItem(firstStage)
+        } else{
+            timerDisplay.innerText = localStorage.getItem(firstStage)
+            min = localStorage.getItem(firstStage)
+            sec = min * 60
+            progressEnd = sec
+            timerDisplaysec.innerText = '00'  
+        }
+        
     }
     else{
         timerDisplay.innerText = '00'
         timerDisplaysec.innerText = '00'
     }
-    console.log(timerDisplay.innerText)
+    //console.log(timerDisplay.innerText)
 }
 ///////////////////// START - STOP btn /////////////////////
 startStop.addEventListener("click", ()=>{
@@ -153,7 +158,8 @@ function progressTrack() {
       //switchingStage('shortbreak')
       
     }
-  }
+}
+///////////////////// Trocando de Modo /////////////////////
 function switchingStage(stage){
     min = localStorage.getItem(stage)
     sec = min * 60
@@ -161,7 +167,8 @@ function switchingStage(stage){
     startStopProgressBar()
 }
 
-  
+
+///////////////////// RESET /////////////////////
   function resetValues() {
     if (progress) {
       clearInterval(progress);
