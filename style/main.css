@@ -324,6 +324,10 @@ html, body {
   border-radius: 50%;
 }
 
+.modal .modal-content .modal-body .modal-color .color-wrap .modal-color-1 {
+  background-color: var(--progress);
+}
+
 .modal .modal-content .modal-apply {
   background-color: #fe6464;
   width: 150px;
