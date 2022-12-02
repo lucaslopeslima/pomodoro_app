@@ -41,10 +41,13 @@ function setValores(p, s, l){
 
      if (p != 0 && s != 0 && l != 0){
         localStorage.clear();
-        localStorage.setItem('pomodoro', p)
+        /* localStorage.setItem('pomodoro', p)
         localStorage.setItem('shortbreak', s)
-        localStorage.setItem('longbreak', l)
-        loadTimer('pomodoro')
+        localStorage.setItem('longbreak', l) */
+        localStorage.setItem('Focus', p)
+        localStorage.setItem('Short Break', s)
+        localStorage.setItem('Long Break', l)
+        loadTimer('Focus')
         
         return
 
@@ -68,12 +71,24 @@ let speed = 1000
 let degTravel = 360 / progressEnd
 let secRem = 0
 let minRem = 0
+//////////////////////// STAGE SELECTOR //////////////////////////
+let focusMode = document.querySelector('.focus')
+let shortMode = document.querySelector('.short-break')
+let longMode = document.querySelector('.long-break')
+let stageItems = document.querySelectorAll('.stage-item')
+console.log(stageItems)
+for(let i = 0; i < stageItems.length; i++){
+    //console.log(sectBtn[i])
+    stageItems[i].addEventListener('click', function(){
+        let currentBtn = document.querySelectorAll('.stage-item-active')
+        currentBtn[0].className = currentBtn[0].className.replace('stage-item-active', '')
+        this.className += ' stage-item-active'
+        console.log(this.innerText)
+    })
+}
 
-/* console.log(startStop)
-console.log('min é '+min)
-console.log('sec é '+sec)
-console.log('progressStart is ' + progressStart)
-console.log('end é ' + progressEnd) */
+
+
 //////////////////////// ATUALIZAR O TIMER ///////////////////////
 function loadTimer(firstStage){
     let timerDisplay = document.querySelector('#minutes')
@@ -139,6 +154,7 @@ async function startStopProgressBar(){
 ///////////////////// Progress Track /////////////////////
 let progresStage = 1
 async function progressTrack() {
+    console.log('track on')
     progressStart++;
     degTravel = 360 / progressEnd
     secRem = Math.floor((progressEnd - progressStart) % 60);
@@ -152,20 +168,6 @@ async function progressTrack() {
           #17171a ${progressStart * degTravel}deg
         )`;
     if (progressStart == progressEnd) {
-        /* if(progresStage == 1){
-            progresStage++
-            clearInterval(progress);
-            progress = null;
-            progressStart = 0;
-           await switchingStage('shortbreak')
-        }
-        if(progresStage == 2){
-            progresStage++
-            clearInterval(progress);
-            progress = null;
-            progressStart = 0;
-           await switchingStage('longbreak')
-        } */
       progressBar.style.background = `conic-gradient(
           #00aa51 360deg,
           #00aa51 360deg
@@ -175,17 +177,20 @@ async function progressTrack() {
       progress = null;
       progressStart = 0;
       
-      await switchingStage('shortbreak')
+      //await switchingStage('shortbreak')
       startStop.innerHTML = "<h2>Start</h2>";
       console.log('THE END!!!')
+      console.log('track off')
     }
 }
 ///////////////////// Trocando de Modo /////////////////////
-function switchingStage(stage){
+async function switchingStage(stage){
+    console.log('swiStage on')
     min = localStorage.getItem(stage)
     sec = min * 60
     loadTimer(stage)
-    startStopProgressBar()
+    await startStopProgressBar()
+    console.log('swiStage off')
 }
 
 

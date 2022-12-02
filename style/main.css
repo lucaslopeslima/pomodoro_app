@@ -79,6 +79,7 @@ html, body {
 }
 
 .app .app-container .stage .stage-item {
+  cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
