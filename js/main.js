@@ -138,11 +138,7 @@ function progressTrack() {
           #9d0000 ${progressStart * degTravel}deg,
           #17171a ${progressStart * degTravel}deg
         )`;
-    /* let progressTimer = document.querySelector('.timer')
-    console.log(sec + 'segundos')
-    progressTimer.style.cssText = `animation: progress ${sec}s 1s linear forwards;` */
     if (progressStart == progressEnd) {
-        //progressTimer.style.cssText = `animation: none;`
       progressBar.style.background = `conic-gradient(
           #00aa51 360deg,
           #00aa51 360deg
@@ -152,13 +148,13 @@ function progressTrack() {
       progress = null;
       progressStart = 0;
       //switchingStage('shortbreak')
-      //loadTimer('shortbreak')
+      
     }
   }
 function switchingStage(stage){
     min = localStorage.getItem(stage)
     sec = min * 60
-    
+    loadTimer(stage)
     startStopProgressBar()
 }
 
@@ -186,3 +182,24 @@ minElem.onblur = function () {
 secElem.onblur = function () {
     resetValues();
 };
+
+
+
+/*
+progress = pomodoro
+if progress == pomodoro{
+    progresstage++
+    progress = shortbreak
+}
+if progress == shortbreak{
+    progresstage++
+    progress = longbreak
+}
+if progress == longbreak{
+    progressstage++
+    progress = null
+}
+
+progress = null
+
+*/
