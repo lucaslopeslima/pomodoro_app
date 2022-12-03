@@ -121,7 +121,7 @@ function loadTimer(firstStage){
 startStop.addEventListener("click", ()=>{
     console.log('progressStart is ' + progressStart)
     if (startStop.innerHTML === '<h2>Start</h2>'){
-        if(minElem != 0){
+        if(minElem.innerHTML != 0){
             startStop.innerHTML = '<h2>Stop</h2>'
             startStopProgressBar()
         } else {
