@@ -52,7 +52,7 @@ function setValores(p, s, l){
         return
 
     }
-    alert('nao') 
+    alert('Por favor, defina os intervalos para o seu Pomodoro.') 
 }
 
 ///////////////////////////// LOGIC /////////////////////
