@@ -62,6 +62,11 @@
                 background-color: #e0e0e0;
             }
             .modal-font{
+                span{
+                    font-size: .7rem;
+                    font-style: italic;
+                }
+                color: gray;
                 display: flex;
                 justify-content: space-between;
                 .font-button{
@@ -72,11 +77,16 @@
                     border-radius: 50%;
                 }
                 .active-font-button{
-                    background-color: black;
+                    background-color: rgb(84, 84, 84);
                     color: white;
                 }
             }
             .modal-color{
+                span{
+                    font-size: .7rem;
+                    font-style: italic;
+                }
+                color: gray;
                 display: flex;
                 justify-content: space-between;
                 .color-wrap{
@@ -88,7 +98,7 @@
                         border-radius: 50%;
                     }
                     .modal-color-1{
-                        background-color: var(--progress);
+                        background-color: #c77c7e;;
                     }
                 }
             }
