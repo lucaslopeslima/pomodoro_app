@@ -188,8 +188,10 @@ async function progressTrack() {
     }
 }
 function playAlarm(){
+    console.log('starting alarm')
     var audio = new Audio('../audio/alarm.wav');
     audio.play();
+    console.log('alarm played')
 }
 ///////////////////// Trocando de Modo /////////////////////
 async function switchingStage(stage){
