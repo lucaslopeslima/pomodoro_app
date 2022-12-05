@@ -154,6 +154,13 @@ async function startStopProgressBar(){
 }
 ///////////////////// Progress Track /////////////////////
 let progresStage = 1
+function playAlarm(){
+    console.log('starting alarm')
+    var audio = new Audio('https://lucaslopeslima.com.br/projects/PROJETO_Pomodoro/audio/alarm.wav');
+    audio.play();
+    console.log('alarm played')
+}
+
 async function progressTrack() {
     console.log('track on')
     progressStart++;
@@ -187,12 +194,7 @@ async function progressTrack() {
       myTimeout */
     }
 }
-function playAlarm(){
-    console.log('starting alarm')
-    var audio = new Audio('../audio/alarm.wav');
-    audio.play();
-    console.log('alarm played')
-}
+
 ///////////////////// Trocando de Modo /////////////////////
 async function switchingStage(stage){
     console.log('swiStage on')
