@@ -156,7 +156,7 @@ async function startStopProgressBar(){
 let progresStage = 1
 function playAlarm(){
     console.log('starting alarm')
-    var audio = new Audio('https://lucaslopeslima.com.br/projects/PROJETO_Pomodoro/audio/alarm.wav');
+    var audio = new Audio('https://lucaslopeslima.com.br/projects/PROJETO_Pomodoro/audio/alarm.mp3');
     audio.play();
     console.log('alarm played')
 }
