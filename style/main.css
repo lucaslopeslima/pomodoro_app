@@ -92,6 +92,8 @@ html, body {
 }
 
 .app .app-container .stage .stage-item h2 {
+  text-align: center;
+  font-size: 1.5rem;
   font-weight: 300;
 }
 
@@ -132,7 +134,7 @@ html, body {
 .app .app-container .timer .start-stop {
   width: 100%;
   position: absolute;
-  bottom: 80px;
+  bottom: 15%;
   /* left: 50%; */
   /* transform: translate(-50%); */
   text-align: center;
@@ -370,10 +372,16 @@ html, body {
   color: white;
 }
 
-/* @media (max-width: 530px){
-    .timer{
-        width: 300px !important;
-        height: 300px !important;
-    }
-} */
+@media (max-width: 530px) {
+  .app .app-container .stage h2 {
+    width: 100%;
+    font-size: 1rem !important;
+  }
+  .app .app-container .timer .display h2 {
+    font-size: 4rem;
+  }
+  .app .app-container .timer .start-stop h2 {
+    font-size: 1.5rem;
+  }
+}
 /*# sourceMappingURL=main.css.map */
