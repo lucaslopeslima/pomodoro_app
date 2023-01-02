@@ -1,6 +1,25 @@
-/* @media (max-width: 530px){
-    .timer{
-        width: 300px !important;
-        height: 300px !important;
+@media (max-width: 530px){
+    .app{
+        .app-container{
+            .stage{
+                h2{
+                    width: 100%;
+                    font-size: 1rem !important;
+                }
+            }
+            .timer{
+                .display{
+                    h2{
+                        font-size: 4rem;
+                    }
+                }
+                .start-stop{
+                    h2{
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
     }
-} */
+    
+}
