@@ -368,4 +368,11 @@ html, body {
 .modal .modal-content .modal-apply h2 {
   color: white;
 }
+
+@media (max-width: 530px) {
+  .timer {
+    width: 200px;
+    height: 200px;
+  }
+}
 /*# sourceMappingURL=main.css.map */
